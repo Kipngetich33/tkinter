@@ -1,5 +1,5 @@
 from tkinter import *
-import random, time, personal_details
+import random, time, personal_details, personal_details_continuation_2
 import time
 
 def call_this_module():
@@ -57,7 +57,7 @@ def call_this_module():
         '''
         root.destroy()
         if(requested_action == "next"):
-            pass      
+            personal_details_continuation_2.call_this_module()      
         elif( requested_action == "previous"):
             personal_details.call_this_module()
 
@@ -151,7 +151,7 @@ def call_this_module():
     # ============================================ bottom section ==============================================
 
     previousbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
-                    text = 'Previous', bg = "powder blue" , command = lambda: call_next("next")).grid(row = 1, column = 0)
+                    text = 'Previous', bg = "powder blue" , command = lambda: call_next("previous")).grid(row = 1, column = 0)
 
     nextbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
                     text = 'Next', bg = "powder blue" , command = lambda: call_next("next")).grid(row = 1, column = 1)

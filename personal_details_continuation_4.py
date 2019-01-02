@@ -1,111 +1,123 @@
 from tkinter import *
-import random
+import random,personal_details_continuation_3, personal_details_continuation_5
 import time
 
-root = Tk()
-root.geometry("1600x800+0+0")
-root.title("LLYODS BANK")
+def call_this_module():
+    root = Tk()
+    root.geometry("1600x800+0+0")
+    root.title("LLYODS BANK")
 
-# =========================================== Form Top Section ==============================================================
-Tops = Frame(root, width = 1600,  relief = SUNKEN)
-Tops.pack(side=TOP)
+    # =========================================== Form Top Section ==============================================================
+    Tops = Frame(root, width = 1600,  relief = SUNKEN)
+    Tops.pack(side=TOP)
 
-Tops1 = Frame(root, width = 1600, height = 5,  relief = SUNKEN, bg = "steel blue")
-Tops1.pack(side=TOP)
+    Tops1 = Frame(root, width = 1600, height = 5,  relief = SUNKEN, bg = "steel blue")
+    Tops1.pack(side=TOP)
 
-lblInfo = Label(Tops , font =('arial', 50 , 'bold'), text = "LLYODS BANK", fg = "Steel Blue", bd = 10 , anchor = 'w')
-lblInfo.grid(row = 0 , column = 0)
+    lblInfo = Label(Tops , font =('arial', 50 , 'bold'), text = "LLYODS BANK", fg = "Steel Blue", bd = 10 , anchor = 'w')
+    lblInfo.grid(row = 0 , column = 0)
 
-lblInfo = Label(Tops , font =('arial', 20 , 'bold'), text = "Sole /Joint Lloyds Bank account", fg = "Steel Blue", bd = 10 , anchor = 'w')
-lblInfo.grid(row = 1 , column = 0)
+    lblInfo = Label(Tops , font =('arial', 20 , 'bold'), text = "Sole /Joint Lloyds Bank account", fg = "Steel Blue", bd = 10 , anchor = 'w')
+    lblInfo.grid(row = 1 , column = 0)
 
 
-# =========================================== Form Body Section =============================================================
+    # =========================================== Form Body Section =============================================================
 
-form_body_left = Frame(root, width = 800 ,height = 500, relief = SUNKEN)
-form_body_left.pack(side = LEFT)
+    form_body_left = Frame(root, width = 800 ,height = 500, relief = SUNKEN)
+    form_body_left.pack(side = LEFT)
 
-form_body_right = Frame(root, width = 800 ,height = 500 , relief = SUNKEN)
-form_body_right.pack(side = RIGHT)
+    form_body_right = Frame(root, width = 800 ,height = 500 , relief = SUNKEN)
+    form_body_right.pack(side = RIGHT)
 
-form_body_bottom = Frame(root, width = 1600 ,height = 100 , relief = SUNKEN)
-form_body_bottom.pack(side = BOTTOM)
+    form_body_bottom = Frame(root, width = 1600 ,height = 100 , relief = SUNKEN)
+    form_body_bottom.pack(side = BOTTOM)
 
-form_body_bottom1 = Frame(root, width = 1600 ,height = 5 , relief = SUNKEN ,bg = "steel blue")
-form_body_bottom1.pack(side = BOTTOM)
+    form_body_bottom1 = Frame(root, width = 1600 ,height = 5 , relief = SUNKEN ,bg = "steel blue")
+    form_body_bottom1.pack(side = BOTTOM)
 
-# ======================================= Info ==================================================
+    # ======================================= Info ==================================================
 
-lblInfo = Label(Tops , font =('arial', 20 , 'bold'), text = "1.1 Your Contact Details", fg = "white",bg = "dark green", bd = 10 , anchor = 'w')
-lblInfo.grid(row = 2 , column = 0)
+    lblInfo = Label(Tops , font =('arial', 20 , 'bold'), text = "1.1 Your Contact Details", fg = "white",bg = "dark green", bd = 10 , anchor = 'w')
+    lblInfo.grid(row = 2 , column = 0)
 
-# ========================================== form =================================================
-debit_desc_1 = "I would like to apply for a debit card"
-debit_desc_2 = "The type of card we give you depends on our assessment of yourpersonal circumstances."
+    # ========================================== form =================================================
+    debit_desc_1 = "I would like to apply for a debit card"
+    debit_desc_2 = "The type of card we give you depends on our assessment of yourpersonal circumstances."
 
-want_debit_card = IntVar()
-want_debit_card1 = IntVar()
-name_on_card = StringVar()
-mothers_name = StringVar()
-birth_date = StringVar()
+    want_debit_card = IntVar()
+    want_debit_card1 = IntVar()
+    name_on_card = StringVar()
+    mothers_name = StringVar()
+    birth_date = StringVar()
 
-# ============================================ customer 1 ==============================================
-customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "First Customer", fg = "Steel Blue" , anchor = 'w')
-customer_1_section.grid(row = 0)
+    def call_next(requested_action):
+        '''
+        function that directs the user to the next form
+        that the user is supposed to fill
+        '''
+        root.destroy()
+        if(requested_action == "next"):
+            personal_details_continuation_5.call_this_module()      
+        elif( requested_action == "previous"):
+            personal_details_continuation_3.call_this_module()
 
-lblInfo = Label(form_body_left , font =('arial', 15 ), text = "Your telephone numbers and area dialling codes", fg = "black" , anchor = 'w')
-lblInfo.grid(row = 1)
+    # ============================================ customer 1 ==============================================
+    customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "First Customer", fg = "Steel Blue" , anchor = 'w')
+    customer_1_section.grid(row = 0)
 
-lblCustName = Label(form_body_left, font = ('arial',16), text="Home" , anchor ='w' )
-lblCustName.grid(row = 4)
-txtCustName = Entry(form_body_left, font = ('arial',16), textvariable = name_on_card ,insertwidth = 4, bd = 5,width = 50,
-                        bg = "powder blue", justify = "right" )
-txtCustName.grid(row = 5 )
+    lblInfo = Label(form_body_left , font =('arial', 15 ), text = "Your telephone numbers and area dialling codes", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 1)
 
-lblMotherName = Label(form_body_left, font = ('arial',16), text="Mobile" , anchor ='w' )
-lblMotherName.grid(row = 7)
-txtMotherName = Entry(form_body_left, font = ('arial',16), textvariable = mothers_name , insertwidth = 4, bd =5,width = 50,
-                        bg = "powder blue", justify = "right" )
-txtMotherName.grid(row = 8)
+    lblCustName = Label(form_body_left, font = ('arial',16), text="Home" , anchor ='w' )
+    lblCustName.grid(row = 4)
+    txtCustName = Entry(form_body_left, font = ('arial',16), textvariable = name_on_card ,insertwidth = 4, bd = 5,width = 50,
+                            bg = "powder blue", justify = "right" )
+    txtCustName.grid(row = 5 )
 
-lblBirthDay = Label(form_body_left, font = ('arial',16), text="Work" , anchor ='w' )
-lblBirthDay.grid(row = 10)
-txtBirthDay = Entry(form_body_left, font = ('arial',16), textvariable = birth_date ,insertwidth = 4,bd =5,width = 50,
-                        bg = "powder blue", justify = "right" )
-txtBirthDay.grid(row = 11)
+    lblMotherName = Label(form_body_left, font = ('arial',16), text="Mobile" , anchor ='w' )
+    lblMotherName.grid(row = 7)
+    txtMotherName = Entry(form_body_left, font = ('arial',16), textvariable = mothers_name , insertwidth = 4, bd =5,width = 50,
+                            bg = "powder blue", justify = "right" )
+    txtMotherName.grid(row = 8)
 
-# ============================================ customer 2 ==============================================
-customer_2_section = Label(form_body_right ,font =('arial', 20, 'bold' ), text = "Second Customer", fg = "Steel Blue" , anchor = 'w')
-customer_2_section.grid(row = 0)
+    lblBirthDay = Label(form_body_left, font = ('arial',16), text="Work" , anchor ='w' )
+    lblBirthDay.grid(row = 10)
+    txtBirthDay = Entry(form_body_left, font = ('arial',16), textvariable = birth_date ,insertwidth = 4,bd =5,width = 50,
+                            bg = "powder blue", justify = "right" )
+    txtBirthDay.grid(row = 11)
 
-lblInfo = Label(form_body_right , font =('arial', 15 ), text = "Your telephone numbers and area dialling codes", fg = "black" , anchor = 'w')
-lblInfo.grid(row = 1)
+    # ============================================ customer 2 ==============================================
+    customer_2_section = Label(form_body_right ,font =('arial', 20, 'bold' ), text = "Second Customer", fg = "Steel Blue" , anchor = 'w')
+    customer_2_section.grid(row = 0)
 
-lblCustName = Label(form_body_right, font = ('arial',16), text="Home" , anchor ='w' )
-lblCustName.grid(row = 4)
-txtCustName = Entry(form_body_right, font = ('arial',16), textvariable = name_on_card ,insertwidth = 4, bd = 5 , width = 50,
-                        bg = "powder blue", justify = "right" )
-txtCustName.grid(row = 5 )
+    lblInfo = Label(form_body_right , font =('arial', 15 ), text = "Your telephone numbers and area dialling codes", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 1)
 
-lblMotherName = Label(form_body_right, font = ('arial',16), text="Mobile" , anchor ='w' )
-lblMotherName.grid(row = 6)
-txtMotherName = Entry(form_body_right, font = ('arial',16), textvariable = mothers_name , insertwidth = 4, bd =5,width = 50,
-                        bg = "powder blue", justify = "right" )
-txtMotherName.grid(row = 7)
+    lblCustName = Label(form_body_right, font = ('arial',16), text="Home" , anchor ='w' )
+    lblCustName.grid(row = 4)
+    txtCustName = Entry(form_body_right, font = ('arial',16), textvariable = name_on_card ,insertwidth = 4, bd = 5 , width = 50,
+                            bg = "powder blue", justify = "right" )
+    txtCustName.grid(row = 5 )
 
-lblBirthDay = Label(form_body_right, font = ('arial',16), text="Work" , anchor ='w' )
-lblBirthDay.grid(row = 8)
-txtBirthDay = Entry(form_body_right, font = ('arial',16), textvariable = birth_date ,insertwidth = 4,bd =5,width = 50,
-                        bg = "powder blue", justify = "right" )
-txtBirthDay.grid(row = 9)
+    lblMotherName = Label(form_body_right, font = ('arial',16), text="Mobile" , anchor ='w' )
+    lblMotherName.grid(row = 6)
+    txtMotherName = Entry(form_body_right, font = ('arial',16), textvariable = mothers_name , insertwidth = 4, bd =5,width = 50,
+                            bg = "powder blue", justify = "right" )
+    txtMotherName.grid(row = 7)
 
-# ============================================ bottom section ==============================================
+    lblBirthDay = Label(form_body_right, font = ('arial',16), text="Work" , anchor ='w' )
+    lblBirthDay.grid(row = 8)
+    txtBirthDay = Entry(form_body_right, font = ('arial',16), textvariable = birth_date ,insertwidth = 4,bd =5,width = 50,
+                            bg = "powder blue", justify = "right" )
+    txtBirthDay.grid(row = 9)
 
-previousbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
-                text = 'Previous', bg = "powder blue").grid(row = 1, column = 0)
+    # ============================================ bottom section ==============================================
 
-nextbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
-                text = 'Next', bg = "powder blue").grid(row = 1, column = 1)
+    previousbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
+                    text = 'Previous', bg = "powder blue", command = lambda: call_next("previous")).grid(row = 1, column = 0)
 
-# -----------------------------------------------------------------------------------------------------
-root.mainloop()
+    nextbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
+                    text = 'Next', bg = "powder blue", command = lambda: call_next("next")).grid(row = 1, column = 1)
+
+    # -----------------------------------------------------------------------------------------------------
+    root.mainloop()

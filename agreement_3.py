@@ -1,5 +1,5 @@
 from tkinter import *
-import random, processing_info_1, agreement_2
+import random, agreement_2, additional_personal_details
 import time
 
 
@@ -38,7 +38,7 @@ def call_this_module():
 
     # ======================================= Info ==================================================
 
-    lblInfo = Label(Tops , font =('arial', 20 , 'bold'), text = "4. Bank Agreement", fg = "white",bg = "dark green", bd = 10 , anchor = 'w')
+    lblInfo = Label(Tops , font =('arial', 20 , 'bold'), text = "4.Bank Agreement(Continued -1)", fg = "white",bg = "dark green", bd = 10 , anchor = 'w')
     lblInfo.grid(row = 2 , column = 0)
 
     # ========================================== form =================================================
@@ -59,64 +59,122 @@ def call_this_module():
     q_3 = "Financial Services Compensation Scheme Information Sheet"
 
     def call_next(requested_action):
-            '''
-            function that directs the user to the next form
-            that the user is supposed to fill
-            '''
-            root.destroy()
-            if(requested_action == "next"):
-                agreement_2.call_this_module()
-            elif( requested_action == "previous"):
-                processing_info_1.call_this_module()
+        '''
+        function that directs the user to the next form
+        that the user is supposed to fill
+        '''
+        root.destroy()
+        if(requested_action == "next"):
+            additional_personal_details.call_this_module()
+        elif( requested_action == "previous"):
+            agreement_2.call_this_module()
+
     # ============================================ customer 1 ==============================================
     customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "First Customer", fg = "Steel Blue" , anchor = 'w')
     customer_1_section.grid(row = 0)
 
-    lblInfo = Label(form_body_left , font =('arial', 15), text = "Consent Given", fg = "black" , anchor = 'w')
+    lblInfo = Label(form_body_left , font =('arial', 15, "bold"), text = "I confirm that I have received the following documentation:", fg = "steel blue" , anchor = 'w')
     lblInfo.grid(row = 1)
 
-    want_debit_checkbox = Radiobutton(form_body_left, font = ('arial',15),text = "Yes", variable = want_debit_card,
-                            value ="1" ,bd = 5)
-    want_debit_checkbox.grid(row = 2 ,sticky = 'w')
+    lblInfo = Label(form_body_left , font =('arial', 15), text = question_1, fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 2)
 
-    lblInfo = Label(form_body_left , font =('arial', 15), text = "Consent Declined", fg = "black" , anchor = 'w')
+    lblInfo = Label(form_body_left , font =('arial', 15), text = q_1_1, fg = "black" , anchor = 'w')
     lblInfo.grid(row = 3)
 
     want_debit_checkbox = Radiobutton(form_body_left, font = ('arial',15),text = "Yes", variable = want_debit_card,
                             value ="1" ,bd = 5)
     want_debit_checkbox.grid(row = 4 ,sticky = 'w')
 
-    lblInfo = Label(form_body_left , font =('arial', 15), text = "Date", fg = "black" , anchor = 'w')
+    lblInfo = Label(form_body_left , font =('arial', 15), text = q_2, fg = "black" , anchor = 'w')
     lblInfo.grid(row = 5)
+
+    want_debit_checkbox = Radiobutton(form_body_left,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 6 ,sticky = 'w')
+
+    lblInfo = Label(form_body_left , font =('arial', 15), text = q_3, fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 7)
+
+
+    want_debit_checkbox = Radiobutton(form_body_left,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 8 ,sticky = 'w')
+
+    lblInfo = Label(form_body_left , font =('arial', 15), text = "Web Pack", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 9)
+
+    want_debit_checkbox = Radiobutton(form_body_left,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 10 ,sticky = 'w')
+
+    lblInfo = Label(form_body_left , font =('arial', 15), text = "Banking Charges Bronchure", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 11)
+
+    want_debit_checkbox = Radiobutton(form_body_left,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 12 ,sticky = 'w')
+
+    lblInfo = Label(form_body_left , font =('arial', 15), text = "Date", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 13)
 
     txtReference = Entry(form_body_left, font = ('arial',15), textvariable = fries , bd =5, insertwidth = 4,
                             bg = "powder blue", justify = "right" )
-    txtReference.grid(row = 6)
+    txtReference.grid(row = 14)
 
     # ============================================ customer 2 ==============================================
     customer_1_section = Label(form_body_right , pady = 10, font =('arial', 20, 'bold' ), text = "Second Customer", fg = "Steel Blue" , anchor = 'w')
     customer_1_section.grid(row = 0)
 
-    lblInfo = Label(form_body_right , font =('arial', 15), text = "Consent Given", fg = "black" , anchor = 'w')
+    lblInfo = Label(form_body_right , font =('arial', 15, "bold"), text = "I confirm that I have received the following documentation:", fg = "steel blue" , anchor = 'w')
     lblInfo.grid(row = 1)
 
-    want_debit_checkbox = Radiobutton(form_body_right, font = ('arial',15),text = "Yes", variable = want_debit_card,
-                            value ="1" ,bd = 5)
-    want_debit_checkbox.grid(row = 2 ,sticky = 'w')
+    lblInfo = Label(form_body_right , font =('arial', 15), text = question_1, fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 2)
 
-    lblInfo = Label(form_body_right , font =('arial', 15), text = "Consent Declined", fg = "black" , anchor = 'w')
+    lblInfo = Label(form_body_right , font =('arial', 15), text = q_1_1, fg = "black" , anchor = 'w')
     lblInfo.grid(row = 3)
+
 
     want_debit_checkbox = Radiobutton(form_body_right, font = ('arial',15),text = "Yes", variable = want_debit_card,
                             value ="1" ,bd = 5)
     want_debit_checkbox.grid(row = 4 ,sticky = 'w')
 
-    lblInfo = Label(form_body_right , font =('arial', 15), text = "Date", fg = "black" , anchor = 'w')
+    lblInfo = Label(form_body_right , font =('arial', 15), text = q_2, fg = "black" , anchor = 'w')
     lblInfo.grid(row = 5)
+
+    want_debit_checkbox = Radiobutton(form_body_right,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 6,sticky = 'w')
+
+    lblInfo = Label(form_body_right , font =('arial', 15), text = q_3, fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 7)
+
+    want_debit_checkbox = Radiobutton(form_body_right,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 8 ,sticky = 'w')
+
+    lblInfo = Label(form_body_right , font =('arial', 15), text = "Web Pack", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 9)
+
+    want_debit_checkbox = Radiobutton(form_body_right,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 10 ,sticky = 'w')
+
+    lblInfo = Label(form_body_right , font =('arial', 15), text = "Banking Charges Bronchure", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 11)
+
+    want_debit_checkbox = Radiobutton(form_body_right,  font = ('arial',15),text = "Yes", variable = want_debit_card,
+                            value ="1" ,bd = 5)
+    want_debit_checkbox.grid(row = 12 ,sticky = 'w')
+
+    lblInfo = Label(form_body_right , font =('arial', 15), text = "Date", fg = "black" , anchor = 'w')
+    lblInfo.grid(row = 13)
 
     txtReference = Entry(form_body_right, font = ('arial',15), textvariable = fries , bd =5, insertwidth = 4,
                             bg = "powder blue", justify = "right" )
-    txtReference.grid(row = 6)
+    txtReference.grid(row = 14)
+
     # ============================================ bottom section ==============================================
 
     previousbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),

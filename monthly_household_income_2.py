@@ -1,5 +1,5 @@
 from tkinter import *
-import random, personal_details_continuation_1, monthly_household_income_1
+import random, monthly_household_income_1, monthly_household_income_3
 import time
 
 
@@ -56,12 +56,12 @@ def call_this_module():
         '''
         root.destroy()
         if(requested_action == "next"):
-            monthly_household_income_1.call_this_module()
+            monthly_household_income_3.call_this_module()
         elif( requested_action == "previous"):
-            personal_details_continuation_1.call_this_module()
+            monthly_household_income_1.call_this_module()
     # ============================================ section 1 ==============================================
 
-    customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "First Customer's Income", fg = "Steel Blue" , anchor = 'w')
+    customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "Second Customer's Income", fg = "Steel Blue" , anchor = 'w')
     customer_1_section.grid(row = 0  )
 
     lblInfo = Label(form_body_left, font =('arial', 15, "bold"), text = "Source:", fg = "black" , anchor = 'w', bd = 20)

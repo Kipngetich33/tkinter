@@ -1,5 +1,5 @@
 from tkinter import *
-import random, time, personal_details_continuation_1
+import random, time, personal_details_continuation_1, account_use
 
 
 def call_this_module():    
@@ -54,7 +54,7 @@ def call_this_module():
         if(requested_action == "next"):
             personal_details_continuation_1.call_this_module()
         else:
-            pass
+            account_use.call_this_module()
 
     # ============================================ customer 1 ==============================================
     customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "First Customer", fg = "Steel Blue" , anchor = 'w')
@@ -154,7 +154,7 @@ def call_this_module():
     # ============================================ bottom section ==============================================
 
     previousbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
-                    text = 'Previous', bg = "powder blue").grid(row = 1, column = 0)
+                    text = 'Previous', bg = "powder blue", command = lambda: call_next("previous")).grid(row = 1, column = 0)
 
     nextbtn = Button(form_body_bottom,padx = 10 , pady = 5 , bd = 5, fg = "black", font = ('arial',15,'bold'),
                     text = 'Next', bg = "powder blue" , command = lambda: call_next("next")).grid(row = 1, column = 1)
