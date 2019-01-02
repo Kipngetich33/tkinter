@@ -3,7 +3,7 @@ import random
 import time
 
 root = Tk()
-root.geometry("1600x800+0+0")
+root.geometry("1600x1600+0+0")
 root.title("LLYODS BANK")
 
 # =========================================== Form Top Section ==============================================================
