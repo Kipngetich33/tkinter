@@ -1,8 +1,8 @@
 from tkinter import *
 import random, time, personal_details_continuation_1, account_use
+from controllers import save_customer_details
 
-
-def call_this_module():    
+def call_this_module(customer_1_data,customer_2_data,columns):    
     root = Tk()
     root.geometry("1600x800+0+0")
     root.title("LLYODS BANK")
@@ -49,12 +49,25 @@ def call_this_module():
     mothers_name = StringVar()
     birth_date = StringVar()
 
+    # def call_next(requested_action,customer_1_data,customer_2_data,columns):
     def call_next(requested_action):
         root.destroy()
         if(requested_action == "next"):
+            # append new data to list
+            # expanded_list = collect_all_data(customer_1_data,customer_2_data,columns)
+            # personal_details_continuation_1.call_this_module(expanded_list)
             personal_details_continuation_1.call_this_module()
         else:
             account_use.call_this_module()
+
+    def collect_all_data(customer_1_data,customer_2_data,columns):
+        '''
+        Function that gets all the data in the form and 
+        appends them to new data
+        '''
+        columns.append()
+        columns.append()
+        return new_data
 
     # ============================================ customer 1 ==============================================
     customer_1_section = Label(form_body_left , pady = 10, font =('arial', 20, 'bold' ), text = "First Customer", fg = "Steel Blue" , anchor = 'w')

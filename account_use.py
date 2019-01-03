@@ -2,6 +2,7 @@ from tkinter import *
 import random, personal_details
 import time
 
+
 def call_this_module():
     root = Tk()
     root.geometry("1600x800+0+0")
@@ -39,16 +40,19 @@ def call_this_module():
 
     # ========================================== form =================================================
 
-    want_debit_card = IntVar()
-    want_debit_card1 = IntVar()
-    name_on_card = StringVar()
-    mothers_name = StringVar()
-    birth_date = StringVar()
+    use_of_account = StringVar()
 
     def call_next(requested_action):
-        root.destroy()
         if(requested_action == "next"):
-            personal_details.call_this_module()
+            customer_1_data = []
+            customer_2_data = []
+            columns = ["What will you be using the account for"]
+            customer_1_data.append(use_of_account.get())
+            customer_2_data.append(use_of_account.get())
+
+            # destroy the current route and call the next
+            root.destroy()
+            personal_details.call_this_module(customer_1_data,customer_2_data,columns)
         else:
             pass
 
@@ -64,7 +68,7 @@ def call_this_module():
 
     lblInfo2 = Label(form_body_left , font =('arial', 15 ), text = "What will you be using the Account for?", fg = "black" , anchor = 'w')
     lblInfo2.grid(row = 3)
-    txtCustName = Entry(form_body_left, font = ('arial',16), textvariable = name_on_card ,insertwidth = 4, bd = 5,width = 50,
+    txtCustName = Entry(form_body_left, font = ('arial',16), textvariable = use_of_account ,insertwidth = 4, bd = 5,width = 50,
                             bg = "powder blue", justify = "right" )
     txtCustName.grid(row = 5 )
 
